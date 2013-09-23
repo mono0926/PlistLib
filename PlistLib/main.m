@@ -18,9 +18,9 @@ int main(int argc, const char * argv[])
         NSString* value = [NSString stringWithUTF8String:argv[3]];
         
         NSMutableDictionary* plistDict = [[NSDictionary alloc] initWithContentsOfFile:filePath].mutableCopy;
-        NSString* originalCFBundleDisplayName = plistDict[key];
-        NSLog(@"filePath: %@. key: %@ ( %@ + %@ )", filePath, key, originalCFBundleDisplayName, value);
-        plistDict[key] = [originalCFBundleDisplayName stringByAppendingString:value];
+        NSString* originalValue = plistDict[key];
+        NSLog(@"filePath: %@. key: %@ ( %@ + %@ )", filePath, key, originalValue, value);
+        plistDict[key] = [originalValue stringByAppendingString:value];
         [plistDict writeToFile:filePath atomically:YES];
     }
     return 0;
